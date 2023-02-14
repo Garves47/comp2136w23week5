@@ -32,6 +32,16 @@ const dispenseMoney = (evt) => {
   }
 };
 
+const validatePhoneNumber = (evt) =>{
+  let re = new RegExp("^\[0-9]{10}") //google regexp generators for doing postal code(maybe password too)
+  let phoneNumber = evt.currentTarget.value;
+  if(re.test(phoneNumber)){
+    $("#phone-number-error").textContent = "";
+  }else{
+    $("#phone-number-error").textContent = "No dont do that :(";
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
 
   $("#reset").addEventListener("click", () => {
@@ -45,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
     $("#money").focus();
   });
 
-
+  $("$phone-number").addEventListener("input", validatePhoneNumber);
 
   $("#dispense-button").addEventListener("click", dispenseMoney);
 
