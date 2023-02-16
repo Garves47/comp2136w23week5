@@ -2,64 +2,71 @@
 
 const $ = (selector) => document.querySelector(selector);
 
-let bills = [100, 50, 20, 10, 5];
-
-const dispenseMoney = (evt) => {
-
-  evt.preventDefault();  
-  
-  let money = parseInt($("#money").value);
-
-  let isPossible = false;
-
-  if (money >= 5 && money % 5 == 0) {
-    isPossible = true;
-  }
-
-  if (isPossible) {
-    let moneyLeftToDispense = money;
-
-    for (let bill of bills) {
-      if (moneyLeftToDispense >= bill) {
-        let amountBills = parseInt(moneyLeftToDispense / bill);
-
-        moneyLeftToDispense = moneyLeftToDispense % bill;
-        $(`#bill${bill}s`).value = amountBills;
-      }
+//Check the password has atleast 8 letters and 1 upper and lower case letter
+const checkPassword = (evt) =>{
+  for(int; i=0; i<$("#password").length()) i++;{  //Weird fixes, come back to fix if problem
+    pc = $("#password").charAt(i);
+    if(character.isUpperCase(pc)){
+      hasCapital = true;
+    } else if (CharacterData.isLowerCase(pc)){
+      hasLower = true;
     }
-  } else {
-    $("#money-error").textContent = "We can't dispense that amount of money";
+    if(hasCapital && hasLower)
+      passwordOkay = true;
   }
-};
+  passwordOkay = false;
+  if($("#password").length() >= 7) $$ (passwordOkay);{
+    $("#badpassword").textContent = "";
+  }
+    $("#badpassword").textContent = "Please enter a password with atleast 8 characters, a capital letter, and a lowercase letter.";
+  
+}
 
-const validatePhoneNumber = (evt) =>{
-  let re = new RegExp("^\[0-9]{10}") //google regexp generators for doing postal code(maybe password too)
-  let phoneNumber = evt.currentTarget.value;
-  if(re.test(phoneNumber)){
-    $("#phone-number-error").textContent = "";
+//Check the postal code is real/usable
+const checkPostalCode = (evt) =>{
+  let re = new RegExp("^\[A-Za-z]\d[A-Za-z]\s\d[A-Za-z]\d") //google regexp generators for doing postal code(maybe password too)
+  let postal1 = evt.currentTarget.value;
+  if(re.test(postal1)){
+    $("#postalcodeerror").textContent = "";
+    let postalOkay = 0;
   }else{
-    $("#phone-number-error").textContent = "No dont do that :(";
+    $("#postalcodeerror").textContent = "Please enter a a postal code with format: #A# A#A.";
+    let postalOkay = 1;
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+//Save the Profile settings
+const saveSettings = evt => {
+  if ($("#password").value == $("#passwordcheck").value) $$ (passwordOkay == 0); {
+    let savedSettings = 1
+    let firstName = $("#firstname").value;
+    let lastName = $("#lastname").value;
+    let email = $("#email").value;
+    let birthday = $("#birthday").value;
+    let password = $("#password").value;
+    let checkPassword = $("#passwordcheck").value;
+    $("#passworderror").textContent = "";
+  }
+  password = ("");
+  checkPassword = ("");
+  $("#passworderror").textContent = "Please make sure your passwords match eachother";
+     
+}
 
-  $("#reset").addEventListener("click", () => {
-    $("#money").value = "";
-    $("#money-error").textContent = "";
+//Save the Device Settings
+const saveDevice = evt => {
+  if (postalOkay == 0){
+    let deviceName = $("#devicename").value;
+    let notifications = $("#notifications").value;
+    let lightingMode = $("#lights").value;
+    let temperature = parseFloat($("#temperature").value);
+    let postalCode = $("#postal").value;
+  } 
+}
 
-    for (let bill of bills) {
-      $(`#bill${bill}s`).value = "";
-    }
+//Listening for buttons to be pressed
+$("#password").addEventListener("input", checkPassword);
+$("#postal").addEventListener("input", checkPostalCode);
+$("#submituser").addEventListener("click", saveSettings);
+$("#submitdevice").addEventListener("click", saveDevice);
 
-    $("#money").focus();
-  });
-
-  $("$phone-number").addEventListener("input", validatePhoneNumber);
-
-  $("#dispense-button").addEventListener("click", dispenseMoney);
-
-  $("#money").value = 60;
-
-  $("#money").focus();
-});

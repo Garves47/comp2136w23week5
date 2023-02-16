@@ -19,6 +19,6 @@ app.get("/", (req, res)=>{
     res.sendFile(path.resolve(__dirname, "index.html"))
 })
 
-// app.get("/atm", (req, res)=>{
-//     res.sendFile(__dirname + "/index.html");
-// })
+app.get("/profile", (req, res)=>{
+    res.sendFile(path.resolve(__dirname, "profile.html"));
+})

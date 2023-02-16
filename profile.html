@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="css/atm.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>User Profile</title>
+  </head>
+  <body>
+    <main>
+      <h1>User Profile</h1>
+      <form id="profile_form" name="profile_form">
+        <div>
+            <label for="firstname">First Name:</label>
+            <input type="text" id="firstname" name="firstname" />
+        </div>
+        <div>
+            <label for="lastname">Last Name:</label>
+            <input type="text" id="lastname" name="lastname" />
+        </div>
+        <div>
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" />
+        </div>
+        <div>
+            <label for="birthday">Birthday:</label>
+            <input type="date" id="birthday" name="birthday" />
+        </div>
+        <div>
+            <label for="password">New Password:</label>
+            <input type="text" id="password" name="password" />
+            <span id="badpassword"></span>
+        </div>
+        <div>
+            <label for="passwordcheck">Confirm Password:</label>
+            <input type="text" id="passwordcheck" name="passwordcheck" />
+            <span id = passworderror></span>
+        </div>
+        <div>
+            <input type="submit" id="submituser" value="Confirm Setup" />
+            <input type="button" id="resetuser" value="Reset All Information" />
+        </div>
+      </form>
+    </main>
+    <script src="js/atm.js"></script>
+  </body>
+</html>

@@ -4,44 +4,44 @@
     <link rel="stylesheet" href="css/atm.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Automatic Teller Machine</title>
+    <title>Device Settings</title>
   </head>
   <body>
     <main>
-      <h1>Automatic Teller Machine</h1>
-      <form id="atm_form" name="atm_form">
+      <h1>Device Settings</h1>
+      <form id="device_form" name="device_form">
         <div>
-          <label for="money">Money to dispense:</label>
-          <input type="text" id="money" name="money" />
-          <span id="money-error"></span>
+          <label for="devicename">Enter a new device name:</label>
+          <input type="text" id="devicename" name="devicename" />
         </div>
         <div>
-          <label>phone number: </label>
-          <input type="text" id="" name="bill100s" disabled />
+          <p>Allow Notifications?</p>
+          <label for="on">On</label>
+          <input type="radio" id="notifications" name="notifications" value="notificationstrue"/>
+          <label for="Off">Off</label>
+          <input type="radio" id="notifications" name="notifications" value="notificationsfalse"/>
         </div>
         <div>
-          <label>$100s dispensed: </label>
-          <input type="text" id="bill100s" name="bill100s" disabled />
+          <p>Lighting Mode</p>
+          <label for="off">Off</label>
+          <input type="radio" id="lights" name="lights" value="lightsoff"/>      
+          <label for="away">Away</label>
+          <input type="radio" id="lights" name="lights" value="lightsaway"/>
+          <label for="eco">Eco</label>
+          <input type="radio" id="lights" name="lights" value="lightseco"/>
+          <label for="full">Full</label>
+          <input type="radio" id="lights" name="lights" value="lightsfull"/>
         </div>
         <div>
-          <label>$50s dispensed: </label>
-          <input type="text" id="bill50s" name="bill50s" disabled />
+          <label for="postal">Enter your postal code:</label>
+          <input type="text" id="postal" name="postal" />
+          <span id="postalcodeerror"></span>
         </div>
+          <label for="temperature">Temperature (10C to 25C):</label>
+          <input type="range" id="temperature" name="temperature" min="10" max="25" step="0.5" value="10">
         <div>
-          <label>$20s dispensed: </label>
-          <input type="text" id="bill20s" name="bill20s" disabled />
-        </div>
-        <div>
-          <label>$10s dispensed: </label>
-          <input type="text" id="bill10s" name="bill10s" disabled />
-        </div>
-        <div>
-          <label>$5s dispensed: </label>
-          <input type="text" id="bill5s" name="bill5s" disabled />
-        </div>
-        <div>
-          <input type="submit" id="dispense-button" value="Dispense Money" />
-          <input type="button" id="reset" value="Reset Form" />
+          <input type="submit" id="submitdevice" value="Set changes to system" />
+          <input type="button" id="resetdevice" value="Clear all options" />
         </div>
       </form>
     </main>
