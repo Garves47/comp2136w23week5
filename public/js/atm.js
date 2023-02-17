@@ -4,6 +4,16 @@ const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.getElementById(selector);
 let postalOkay = false;
 
+
+function refreshTime() {
+  const timeDisplay = document.getElementById("time");
+  const dateString = new Date().toLocaleString();
+  const formattedString = dateString.replace(", ", " - ");
+  timeDisplay.textContent = formattedString;
+}
+  setInterval(refreshTime, 1000);
+  
+
 //Check the postal code is real/usable
 const checkPostalCode = (evt) =>{
   let re = new RegExp("^[A-Za-z][0-9][A-Za-z][0-9][A-Za-z][0-9]") //google regexp generators for doing postal code(maybe password too)re = /^(?=.*[a-z])(?=.*[A-Z]).{8,}$/;

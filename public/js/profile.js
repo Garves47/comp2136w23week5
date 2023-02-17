@@ -33,7 +33,7 @@ const saveSettings = (evt) => {
 }; 
 
 //Reset all input fields
-const resetDevice = evt => {
+const resetSettings = evt => {
   evt.preventDefault();
   $("#firstname").value = ("");
   $("#lastname").value = ("");
@@ -47,6 +47,7 @@ const resetDevice = evt => {
 document.addEventListener("DOMContentLoaded", () => {
   $("#password").addEventListener("input", checkPassword);
   $("#submituser").addEventListener("click", saveSettings);
+  $("#resetuser").addEventListener("click", resetSettings);
   $("#savefirstname").value = ("Kevin");
   $("#savelastname").value = ("Armstrong")
   $("#savebirthday").value = ("2001-08-07")

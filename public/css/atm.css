@@ -1,13 +1,18 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: white;
+    background-color: lightsteelblue;
     margin: 0 auto;
-    width: 600px;
-    border: 3px solid blue;
-    padding: 0 2em 1em;
+    width: 80%;
+    border: 5px solid blue;
+    padding: 0 3em 10em;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    
+
 }
 h1 {
-    color: blue;
+    color: whitesmoke;
 }
 div {
     margin-bottom: 1em;
@@ -22,6 +27,75 @@ input {
     margin-right: 0.5em;
 }
 
-span {
-    color: red;
+.banner {
+    height: 150px;
+    background-color: blue;
+    margin-top: 1em;
+    width: 100%;
+    padding:5px 10px;
+}
+
+#time {
+    color: whitesmoke;
+    text-align: right;
+    margin-left: 80%;
+
+}
+
+#profilepic{
+    margin-left:40%;
+    
+}
+
+#profilelink{
+    color: whitesmoke;
+}
+.row{
+   height:100%;
+   display:flex;
+   flex-wrap: wrap;
+   flex-direction: row;
+   justify-content: space-around; 
+}
+.col-1{
+    width:40%;
+    background-color: lightskyblue;
+    margin-top: 1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+.col-2{
+    width:40%;
+    background-color: lightskyblue;
+    display:flex;
+    flex-wrap: wrap;
+    margin-top: 1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+.col-3{
+    width:40%;
+    height: 500px;
+    background-color: lightskyblue;
+    margin-top: 1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+.col-4{
+    width:40%;
+    height:500px;
+    background-color: lightskyblue;
+    display:flex;
+    flex-wrap: wrap;
+    margin-top: 1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+.inputs{
+    margin: 2em;
+    text-align: center;
+}
+.outputs{
+    margin: 1.5em;
+    text-align: center;
 }

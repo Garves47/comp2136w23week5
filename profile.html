@@ -8,58 +8,70 @@
   </head>
   <body>
     <main>
-      <h1>User Profile</h1>
-      <form id="profile_form" name="profile_form">
+      <div class="banner">
+        <h1>User Profile</h1>
+        
         <div>
-            <label for="firstname">First Name:</label>
-            <input type="text" id="firstname" name="firstname" />
+          <a id="profilelink" href="/">Device Settings</a>
         </div>
-        <div>
-            <label for="lastname">Last Name:</label>
-            <input type="text" id="lastname" name="lastname" />
+        
+      </div>
+      <div class="row">
+        <div class="col-3">
+        <form id="profile_form" name="profile_form">
+          <div class="inputs">
+              <label for="firstname">First Name:</label>
+              <input type="text" id="firstname" name="firstname" />
+          </div>
+          <div class="inputs">
+              <label for="lastname">Last Name:</label>
+              <input type="text" id="lastname" name="lastname" />
+          </div>
+          <div class="inputs">
+              <label for="email">Email Address:</label>
+              <input type="email" id="email" name="email" />
+          </div>
+          <div class="inputs">
+              <label for="birthday">Birthday:</label>
+              <input type="date" id="birthday" name="birthday" />
+          </div>
+          <div class="inputs">
+              <label for="password">Password:</label>
+              <input type="password" id="password" name="password" />
+              <span id="badpassword"></span>
+          </div>
+          <div class="inputs">
+              <label for="passwordcheck">Confirm Password:</label>
+              <input type="password" id="passwordcheck" name="passwordcheck" />
+          </div>
+          <div class="inputs">
+              <input type="submit" id="submituser" value="Confirm Setup" />
+              <span id="submiterror"></span>
+              <input type="button" id="resetuser" value="Reset All Information" />
+          </div>
         </div>
-        <div>
-            <label for="email">Email Address:</label>
-            <input type="email" id="email" name="email" />
-        </div>
-        <div>
-            <label for="birthday">Birthday:</label>
-            <input type="date" id="birthday" name="birthday" />
-        </div>
-        <div>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" />
-            <span id="badpassword"></span>
-        </div>
-        <div>
-            <label for="passwordcheck">Confirm Password:</label>
-            <input type="password" id="passwordcheck" name="passwordcheck" />
-        </div>
-        <div>
-            <input type="submit" id="submituser" value="Confirm Setup" />
-            <span id="submiterror"></span>
-            <input type="button" id="resetuser" value="Reset All Information" />
-        </div>
-        <div>
-          <label for="savefirstname">First Name:</label>
-          <input type="text" id="savefirstname" name="savefirstname" disabled/>
-        </div>
-        <div>
-          <label for="savelastname">Last Name:</label>
-          <input type="text" id="savelastname" name="savelastname" disabled/>
-        </div>
-        <div>
-          <label for="savebirthday">Birthday:</label>
-          <input type="text" id="savebirthday" name="savebirthday" disabled/>
-        </div>
-        <div>
-          <label for="saveemail">Email:</label>
-          <input type="text" id="saveemail" name="saveemail" disabled/>
-        </div>
-      </form>
-    <div>
-      <a href="/">Device Settings</a>
-    </div>
+
+        <div class="col-4">
+          <img src="css/UserIcon.png" width="120" height="120" alt="User Icon" id="profilepic">
+          <div class="outputs">
+            <label for="savefirstname">First Name:</label>
+            <input type="text" id="savefirstname" name="savefirstname" disabled/>
+          </div>
+          <div class="outputs">
+            <label for="savelastname">Last Name:</label>
+            <input type="text" id="savelastname" name="savelastname" disabled/>
+          </div>
+          <div class="outputs">
+            <label for="savebirthday">Birthday:</label>
+            <input type="text" id="savebirthday" name="savebirthday" disabled/>
+          </div>
+          <div class="outputs">
+            <label for="saveemail">Email:</label>
+            <input type="text" id="saveemail" name="saveemail" disabled/>
+          </div>
+        </div> 
+        </form>
+      </div> 
     </main>
     <script src="js/profile.js"></script>
   </body>
