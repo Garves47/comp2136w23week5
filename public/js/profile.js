@@ -1,45 +1,55 @@
 "use strict";
 
 const $ = (selector) => document.querySelector(selector);
+const $$ = (selector) => document.getElementById(selector);
 
 //Check the password has atleast 8 letters and 1 upper and lower case letter
 const checkPassword = (evt) =>{
-    let passwordOkay = false;
-    for(int; i=0; i<$("#password").length()) i++;{  //Weird fixes, come back to fix if problem
-      pc = $("#password").charAt(i);
-      if(character.isUpperCase(pc)){
-        hasCapital = true;
-      } else if (CharacterData.isLowerCase(pc)){
-        hasLower = true;
-      }
-      if(hasCapital && hasLower)
-        passwordOkay = true;
-    }
-    if($("#password").length() >= 7) $$ (passwordOkay);{
-      $("#badpassword").textContent = ("Password OK");
-    }
-      $("#badpassword").textContent = ("Please enter a password with atleast 8 characters, a capital letter, and a lowercase letter.");  
+  let re = new RegExp("^(?=.*[a-z])(?=.*[A-Z]).{8,}") //google regexp generators for doing postal code(maybe password too)re = /^(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+  let password1 = evt.currentTarget.value;
+  if(re.test(password1)){
+    $("#badpassword").textContent = "Password ok";
+    return true;
+  }else{
+    $("#badpassword").textContent = "Please enter a password with atleast 8 characters, an Uppercase, and lowercase letter.";
+    return false;
+  }
 };
 
 //Save the Profile settings
-const saveSettings = evt => {
-    evt.preventDefault();  
-    if ($("#password").value == $("#passwordcheck").value) $$ (passwordOkay == 0); {
-      let savedSettings = 1
-      let firstName = $("#firstname").value;
-      let lastName = $("#lastname").value;
-      let email = $("#email").value;
-      let birthday = $("#birthday").value;
-      let password = $("#password").value;
-      let checkPassword = $("#passwordcheck").value;
-      $("#passworderror").textContent = "Passwords Match";
-    }
-    $("#password").value = ("error");
-    $("#passwordcheck").value = ("error");
-    $("#passworderror").textContent = "Please make sure your passwords match eachother";
-       
-};
+const saveSettings = (evt) => {
+  evt.preventDefault();
+  const p1 = $$("password").value;
+  const p2 = $$("passwordcheck").value;
+  if (p1 == p2) { 
+    $("#savefirstname").value = $$("firstname").value;
+    $("#savelastname").value = $$("lastname").value;
+    $("#saveemail").value = $$("email").value;
+    $("#savebirthday").value = $$("birthday").value;
+    $("#submiterror").textcontent = "Saved!";
+  }else{
+    $("#submiterror").textcontent = "Please make sure both passwords match";
+  }
+}; 
 
-//Listens for events
-$("#password").addEventListener("input", checkPassword);
-$("#submituser").addEventListener("click", saveSettings);
+//Reset all input fields
+const resetDevice = evt => {
+  evt.preventDefault();
+  $("#firstname").value = ("");
+  $("#lastname").value = ("");
+  $("#email").value = ("");
+  $("#birthday").value = ("");
+  $("#password").value = ("");
+  $("#passwordcheck").value = ("");
+}
+
+//Preset values and prepping events
+document.addEventListener("DOMContentLoaded", () => {
+  $("#password").addEventListener("input", checkPassword);
+  $("#submituser").addEventListener("click", saveSettings);
+  $("#savefirstname").value = ("Kevin");
+  $("#savelastname").value = ("Armstrong")
+  $("#savebirthday").value = ("2001-08-07")
+  $("#saveemail").value = ("karmstrong02@outlook.com")
+});
+

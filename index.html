@@ -12,39 +12,60 @@
       <form id="device_form" name="device_form">
         <div>
           <label for="devicename">Enter a new device name:</label>
-          <input type="text" id="devicename" name="devicename" />
+          <input type="text" id="devicename" name="devicename" required/>
         </div>
         <div>
-          <p>Allow Notifications?</p>
-          <label for="on">On</label>
-          <input type="radio" id="notifications" name="notifications" value="notificationstrue"/>
-          <label for="Off">Off</label>
-          <input type="radio" id="notifications" name="notifications" value="notificationsfalse"/>
+          <label for="notifications">Notifications: </label>
+          <select name="notifications" id="notifications" required>
+            <option value="On">On</option>
+            <option value="Off">Off</option>
+          </select>
         </div>
         <div>
-          <p>Lighting Mode</p>
-          <label for="off">Off</label>
-          <input type="radio" id="lights" name="lights" value="lightsoff"/>      
-          <label for="away">Away</label>
-          <input type="radio" id="lights" name="lights" value="lightsaway"/>
-          <label for="eco">Eco</label>
-          <input type="radio" id="lights" name="lights" value="lightseco"/>
-          <label for="full">Full</label>
-          <input type="radio" id="lights" name="lights" value="lightsfull"/>
+          <label for="lights">Lighting Mode: </label>
+          <select name="lights" id="lights" required>
+            <option value="Off">Off</option>
+            <option value="Away">Away</option>
+            <option value="Eco">Eco</option>
+            <option value="Full">Full</option>
+          </select>
         </div>
         <div>
           <label for="postal">Enter your postal code:</label>
-          <input type="text" id="postal" name="postal" />
+          <input type="text" id="postal" name="postal" required/>
           <span id="postalcodeerror"></span>
         </div>
           <label for="temperature">Temperature (10C to 25C):</label>
-          <input type="range" id="temperature" name="temperature" min="10" max="25" step="0.5" value="10">
+          <input type="range" id="temperature" name="temperature" min="10" max="25" step="0.5" value="10" required>
         <div>
           <input type="submit" id="submitdevice" value="Set changes to system" />
           <input type="button" id="resetdevice" value="Clear all options" />
         </div>
+        <div>
+          <label for="savedevice">Current Device Name:</label>
+          <input type="text" id="savedevice" name="savedevice" disabled/>
+        </div>
+        <div>
+          <label for="savenotification">Current Notification Settings:</label>
+          <input type="text" id="savenotification" name="savenotification" disabled/>
+        </div>
+        <div>
+          <label for="savelighting">Current Lighting Mode:</label>
+          <input type="text" id="savelighting" name="savelighting" disabled/>
+        </div>
+        <div>
+          <label for="savepostal">Postal Code:</label>
+          <input type="text" id="savepostal" name="savepostal" disabled/>
+        </div>
+        <div>
+          <label for="savetemperature">Current Temperature:</label>
+          <input type="text" id="savetemperature" name="savetemperature" disabled/>
+        </div>
       </form>
+      <div>
+        <a href="profile">Profile Settings</a>
+      </div>
     </main>
-    <script src="js/atm.js"></script>
+    <script src="js/atm.js"></script> 
   </body>
 </html>
