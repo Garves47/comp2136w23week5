@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="css/smarthub.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Terms of Service</title>
+  </head>
+  <body>
+    <%- include('layouts/header')-%>
+    <main>
+      <% if(user){ %>
+        <h1>Terms of Service (ACCEPTED)</h1>
+        <%}else{ %>
+        <h1>Terms of Service</h1>
+        <% } %>
+        <form id="terms_form" action="/update-term" method="POST">
+        <p>
+            Ingredientia
+
+facit 16
+
+1½
+cyathos (200 g) omni-proposito conspersa (scooning in cyathos metientes, deinde coaequandis)
+
+1¼
+tsp. (4 g) Diamond Crystal or tsp. (4 g) Morton kosher sal
+
+Quadrata
+tsp. (4 g) pistoria nitri
+
+Quadrata
+poculum (1½ haeret, CLXIX g) insulsum butyrum, divisum
+
+1
+poculum (200 g) (refertum) fuscum saccharo
+
+Quadrata
+poculum (L g) sugar granulatum
+
+1
+magnum ovum
+
+2
+magna ovorum
+
+2
+tsp. vanilla extract
+
+6
+oz. (CLXX g) acerbumdulce scelerisque (LX% -70% cacao), crasse conciderunt, seu semisweet scelerisque eu
+Praeparatio
+
+    I step
+
+    Tormenta in superioribus et inferioribus partibus clibani; preheat ad CCCLXXV p. Whisk farinam, salem, et nitro in parva phiala; set farrago mixtura deponeret.
+    Gradus 2
+
+    Coque ½ calicem (1 baculum; 113 g) butyrum in aeno magno super medium calorem, inundans saepe et in fundo sartagine radians cum spatula fricantis calorproof, donec butyrum spumat, dein fusca, circiter 4 minuta. In sterquilinio butyrum liquefactum et quaevis frena fusca in magnam phialam heatproof mixtam et 1 minutum refrigerandum sit. Reliquum calicem (½ baculum; 56 g) butyrum in minutas partes adde et butyrum fuscum (incipere debet dissolvere, sed non spumare et sizzle, sic experire cum una parte antequam reliquas addas).
+    Gradus III
+
+    Postquam butyrum liquefactum est, utrumque sugars et SCOPULA adde, filicum quaelibet frangendo, donec saccharum incorporetur et nullae massae manent. Adde ovum et vitella ovorum et SCOPULA donec saccharum dissolvat et mixtum leve sit, circiter XXX secundis. Whisk in vanilla. Flexilis spatha utens, complicare arida medicamenta in butyrum mixtura reservata, donec nullae maculae aridae maneant, deinde in socolata (crustulum farinae molle erit sed formam eius semel haustam tenere debet; si slumps vel post haustum permanat, rursus simul farinam moveat; Saepius et quiescant 5-10 minutes, donec trullas eorum figuram teneant sicut hydrates farinae).
+    Gradus 4
+
+    Usura 1½-oz. uncus (3 Tbsp.), portionem extra 16 globos massae et inter 2 membranas laminis coquendis labris instructas divide. Crustula coquamus, schedae rotatae si crustula admodum inaequale (aliter, solum relinquunt), usque ad alta aurea brunnea et circa margines firma, 8-10 minuta sunt. Frigidus sit in coquendis chartis.
+
+    Fac Ahead: Crustulae effici possunt 3 dies ante. Locus temperatus ad airtight copia.
+        </p>
+        <p>
+            By clicking accept, you agree to our terms and conditions, along with commiting to making the recipe for yourself.
+        </p>
+        <input name= "taccept" type="button" id="accepted" value="Accept"/>
+        </form>
+        <%- include('layouts/footer')-%>
+    </main>
+    <script>
+        const accepted = document.querySelector("#accepted");
+        accepted.addEventListener("click",
+          () => (window.location.href = "terms?accepted=true"));
+    </script>
+  </body>
+</html>   

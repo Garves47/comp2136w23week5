@@ -7,14 +7,13 @@ const ejs = require("ejs");
 const path =require("path");
 const app = express();
 const PORT = 3000;
-let user = req.session.user;
 
 app.set("view engine","ejs");
 app.use(express.static("public"));
 app.use(expressSession({
     resave: false,
     saveUninitialized: true,
-    secret:"secret key shh no tellin"
+    secret:"very secret key"
   }));
 
 app.use(bodyParser.json());
@@ -30,4 +29,24 @@ app.get("/", (req, res)=>{
 
 app.get("/profile", (req, res)=>{
     res.render("profile");
+})
+
+//TERMS PAGE AND UPDATED VERSION
+app.get("/terms", (req, res)=>{
+    let user = req.session.user;
+    res.render("terms", {user});
+})
+app.post("/update-term",(req, res)=>{
+    console.log(req.body);
+    req.session.user = req.body;
+    res.redirect("/terms");
+})
+
+//PRIVACY PAGE AND UPDATED VERSION
+app.get("/privacy", (req, res)=>{
+    res.render("privacy");
+})
+
+app.get("/slideshow", (req, res)=>{
+    res.render("slideshow");
 })

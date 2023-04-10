@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="css/smarthub.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Terms of Service</title>
+  </head>
+  <body>
+    <%- include('layouts/header')-%>
+    <main>
+        <h1>Terms of Service</h1>
+        <p>
+            We here at DefaultSmartHomeManufacture inc do not value your privacy at all and will actively try to sell your data to as many people as possible, inorder to increase our profits and shares
+        </p>
+        <p>
+            By using our product, you automatically agree to this policy and any attempts at a lawsuit will be shut down by our mega team of lawyers.
+        </p>
+        <input type="button" id="accepted" value="Accept"/>
+        <%- include('layouts/footer')-%>
+    </main>
+    <script>
+        const accepted = document.querySelector("#accepted");
+        accepted.addEventListener("click",
+          () => (window.location.href = "privacy?accepted=true"));
+    </script>
+  </body>
+</html>   

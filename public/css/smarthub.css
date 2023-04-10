@@ -4,15 +4,19 @@ body {
     margin: 0 auto;
     width: 80%;
     border: 5px solid blue;
-    padding: 0 3em 10em;
+    padding: 0 3em 116px;
     display:flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
+    position: relative;
     
-
 }
 h1 {
     color: whitesmoke;
+    display:flex;
+    flex-direction: row;
+
+
 }
 div {
     margin-bottom: 1em;
@@ -30,9 +34,12 @@ input {
 .banner {
     height: 150px;
     background-color: blue;
-    margin-top: 1em;
+    margin-top: 0em;
     width: 100%;
     padding:5px 10px;
+    display:flex;
+    flex-direction: row;
+
 }
 
 #time {
@@ -98,4 +105,65 @@ input {
 .outputs{
     margin: 1.5em;
     text-align: center;
+}
+.header-ul {
+    list-style-type: none;
+    width: 100%;
+    height: 75px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  .header-li {
+    float: left;
+  }
+  
+  .header-li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+  .header-li a:hover {
+    background-color: cornflowerblue;
+  }
+
+  .footer-ul {
+    list-style-type: none;
+    width: 92%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    bottom: 0;
+    position: absolute;
+  }
+  
+  .footer-li {
+    float: left;
+  }
+  
+  .footer-li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+  .footer-li a:hover {
+    background-color: cornflowerblue;
+  }
+
+#image_list{
+    list-style: none;
+}
+#timer{
+    width:25%;
 }

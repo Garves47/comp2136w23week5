@@ -7,31 +7,28 @@
     <title>Device Settings</title>
   </head>
   <body>
+    <%- include('layouts/header')-%>
     <main>
-      <div class="banner">
+      <div class="">
         <h1>Device Settings</h1>
-        <span id="time"> </span>
-        <div>
-          <a id="profilelink" href="profile">To Profile Settings</a>
-        </div>
       </div>
       <form id="device_form" name="device_form">
         <div class="row">
           <div class="col-1">
             <div class="inputs">
               <label for="devicename">Enter a new device name:</label>
-              <input type="text" id="devicename" name="devicename" required/>
+              <input type="text" id="devicename" name="devicename" />
             </div>
             <div class="inputs">
               <label for="notifications">Notifications: </label>
-              <select name="notifications" id="notifications" required>
+              <select name="notifications" id="notifications" >
                 <option value="On">On</option>
                 <option value="Off">Off</option>
               </select>
             </div>
             <div class="inputs">
               <label for="lights">Lighting Mode: </label>
-              <select name="lights" id="lights" required>
+              <select name="lights" id="lights" >
                 <option value="Off">Off</option>
                 <option value="Away">Away</option>
                 <option value="Eco">Eco</option>
@@ -40,11 +37,23 @@
             </div>
             <div class="inputs">
               <label for="postal">Enter your postal code:</label>
-              <input type="text" id="postal" name="postal" required/>
+              <input type="text" id="postal" name="postal" required placeholder="A1A1A1"/>
               <span id="postalcodeerror"></span>
-            </div class="inputs">
+            </div>
+            <div class="inputs">
               <label for="temperature">Temperature (10C to 25C):</label>
-              <input type="range" id="temperature" name="temperature" min="10" max="25" step="0.5" value="10" required>
+              <input type="range" id="temperature" name="temperature" min="10" max="25" step="0.5" value="10">
+            </div>
+            <div class="inputs">
+              <label for="temperature">Set Temporary Temperature (10C to 25C):</label>
+              <input type="range" id="temptemp" name="temperature" min="10" max="25" step="0.5" value="10">
+              <label for="setTempTime">Set the hours and minutes it should run for:</label>
+              <input type="number" id="hours" name="hours" min="0" max="24" placeholder="Hours"/>
+              <input type="button" id="setTempTime" value="Start Temporary Temperature" />
+              <input type="number" id="minutes" name="minutes" min="0" max="60" placeholder="Minutes"/>
+              
+            </div>
+             
             <div class="inputs">
               <input type="submit" id="submitdevice" value="Set changes to system" />
               <input type="button" id="resetdevice" value="Clear all options" />
@@ -71,10 +80,12 @@
             <div class="outputs">
               <label for="savetemperature">Current Temperature:</label>
               <input type="text" id="savetemperature" name="savetemperature" disabled/>
+              <p id="timerTime"></p>
             </div>
           </div>
         </div>
       </form>
+      <%- include('layouts/footer')-%>
     </main>
     <script src="js/dashboard.js"></script> 
   </body>

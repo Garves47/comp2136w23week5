@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/smarthub.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Automatic Picture Frame</title>
+</head>
+<body>
+    <%- include('layouts/header')-%>
+    <main>
+        <h1>Picture Frame Auto Display</h1>
+        <ul id="image_list">
+            <li><a href="images/slide1.jpg" title="Space"></a></li>
+            <li><a href="images/slide2.jpg" title="Also space"></a></li>
+            <li><a href="images/slide3.jpg" title="Still space"></a></li>
+            <li><a href="images/slide4.jpg" title="Nothing but space"></a></li>
+            <li><a href="images/slide5.jpg" title="Space but bigger"></a></li>
+        </ul>
+        <input type="button" id="left" value="Left"/>
+        <input type="button" id="right" value="Right"/>
+        <h2 id="caption">Space but bigger</h2> 
+        <p><img id="main_image" src="images/slide5.jpg" alt="Space but bigger"></p>
+           
+
+        <script src="js/slideshow.js"></script>
+        <%- include('layouts/footer')-%>
+    </main>  
+</body>
+</html>

@@ -3,6 +3,15 @@
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.getElementById(selector);
 
+//Clock that appears in header, each .js file needs this code block for time to work
+function refreshTime() {
+  const timeDisplay = document.getElementById("time");
+  const dateString = new Date().toLocaleString();
+  const formattedString = dateString.replace(", ", " - ");
+  timeDisplay.textContent = formattedString;
+}
+  setInterval(refreshTime, 1000);
+
 //Check the password has atleast 8 letters and 1 upper and lower case letter
 const checkPassword = (evt) =>{
   let re = new RegExp("^(?=.*[a-z])(?=.*[A-Z]).{8,}") //google regexp generators for doing postal code(maybe password too)re = /^(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
@@ -41,6 +50,10 @@ const resetSettings = evt => {
   $("#birthday").value = ("");
   $("#password").value = ("");
   $("#passwordcheck").value = ("");
+  $("#submiterror").value = ("");
+  $("#badpassword").value = ("");
+
+
 }
 
 //Preset values and prepping events
