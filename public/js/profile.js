@@ -31,11 +31,12 @@ const saveSettings = (evt) => {
   const p1 = $$("password").value;
   const p2 = $$("passwordcheck").value;
   if (p1 == p2) { 
-    $("#savefirstname").value = $$("firstname").value;
-    $("#savelastname").value = $$("lastname").value;
-    $("#saveemail").value = $$("email").value;
-    $("#savebirthday").value = $$("birthday").value;
-    $("#submiterror").textcontent = "Saved!";
+    //$("#savefirstname").value = $$("firstname").value;  Letting sessions do all the work for saving the values
+    //$("#savelastname").value = $$("lastname").value;
+    //$("#saveemail").value = $$("email").value;
+    //$("#savebirthday").value = $$("birthday").value;
+    //$("#submiterror").textcontent = "Saved!";
+    $("#profile_form").submit();
   }else{
     $("#submiterror").textcontent = "Please make sure both passwords match";
   }
@@ -61,9 +62,9 @@ document.addEventListener("DOMContentLoaded", () => {
   $("#password").addEventListener("input", checkPassword);
   $("#submituser").addEventListener("click", saveSettings);
   $("#resetuser").addEventListener("click", resetSettings);
-  $("#savefirstname").value = ("Kevin");
-  $("#savelastname").value = ("Armstrong")
-  $("#savebirthday").value = ("2001-08-07")
-  $("#saveemail").value = ("karmstrong02@outlook.com")
+  //$("#savefirstname").value = ("Kevin");    Dont want default values, much rather have a first time setup 
+  //$("#savelastname").value = ("Armstrong")  kind of vibe with sessions filling everything afterwards
+  //$("#savebirthday").value = ("2001-08-07")
+  //$("#saveemail").value = ("karmstrong02@outlook.com")
 });
 

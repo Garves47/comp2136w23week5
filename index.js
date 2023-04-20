@@ -23,30 +23,37 @@ app.listen(PORT, ()=>{
     console.log("App listening on port #"+ PORT);
 });
 
+//Dashboard Page
 app.get("/", (req, res)=>{
     res.render("index");
 })
 
+//Profile page and update
 app.get("/profile", (req, res)=>{
-    res.render("profile");
+    let user = req.session.user;
+    res.render("profile", {user});
 })
+
 
 //TERMS PAGE AND UPDATED VERSION
 app.get("/terms", (req, res)=>{
-    let user = req.session.user;
-    res.render("terms", {user});
-})
-app.post("/update-term",(req, res)=>{
-    console.log(req.body);
-    req.session.user = req.body;
-    res.redirect("/terms");
+    res.render("terms");
 })
 
-//PRIVACY PAGE AND UPDATED VERSION
+
+//PRIVACY PAGE
 app.get("/privacy", (req, res)=>{
     res.render("privacy");
 })
 
+//Slideshow Page
 app.get("/slideshow", (req, res)=>{
     res.render("slideshow");
 })
+
+
+app.post("/update-profile",(req, res)=>{
+    console.log(req.body);
+    req.session.user = req.body;
+    res.redirect("/profile");
+});

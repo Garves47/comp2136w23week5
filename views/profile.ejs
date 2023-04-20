@@ -2,6 +2,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="css/smarthub.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>User Profile</title>
@@ -10,11 +11,15 @@
     <%- include('layouts/header')-%>
     <main>
       <div class="">
-        <h1>User Profile</h1>
+        <% if(user){ %>
+          <h1><%= user.firstname %>'s Profile</h1>
+          <% }else{ %>
+          <h1>User Profile</h1>
+          <% } %>
       </div>
       <div class="row">
         <div class="col-3">
-        <form id="profile_form" name="profile_form">
+        <form id="profile_form" name="profile_form" action="/update-profile" method="POST">
           <div class="inputs">
               <label for="firstname">First Name:</label>
               <input type="text" id="firstname" name="firstname" />
@@ -40,33 +45,34 @@
               <label for="passwordcheck">Confirm Password:</label>
               <input type="password" id="passwordcheck" name="passwordcheck" />
           </div>
+        </form>
           <div class="inputs">
               <input type="submit" id="submituser" value="Confirm Setup" />
               <span id="submiterror"></span>
               <input type="button" id="resetuser" value="Reset All Information" />
           </div>
         </div>
-
+        
         <div class="col-4">
           <img src="css/UserIcon.png" width="120" height="120" alt="User Icon" id="profilepic">
           <div class="outputs">
-            <label for="savefirstname">First Name:</label>
-            <input type="text" id="savefirstname" name="savefirstname" disabled/>
+            <label for="savefirstname">First Name:</label><%if(user){%>
+            <span type="text" id="savefirstname" name="savefirstname"><%=user.firstname%></span><%}%>
           </div>
           <div class="outputs">
-            <label for="savelastname">Last Name:</label>
-            <input type="text" id="savelastname" name="savelastname" disabled/>
+            <label for="savelastname">Last Name:</label><%if(user){%>
+            <span type="text" id="savelastname" name="savelastname"><%=user.lastname%></span><%}%>
           </div>
           <div class="outputs">
-            <label for="savebirthday">Birthday:</label>
-            <input type="text" id="savebirthday" name="savebirthday" disabled/>
+            <label for="savebirthday">Birthday:</label><%if(user){%>
+            <span type="text" id="savebirthday" name="savebirthday"><%=user.birthday%></span><%}%>
           </div>
           <div class="outputs">
-            <label for="saveemail">Email:</label>
-            <input type="text" id="saveemail" name="saveemail" disabled/>
+            <label for="saveemail">Email:</label><%if(user){%>
+            <span type="text" id="saveemail" name="saveemail"><%=user.email%></span><%}%>
           </div>
         </div> 
-        </form>
+        
       </div> 
       <%- include('layouts/footer')-%>
     </main>
