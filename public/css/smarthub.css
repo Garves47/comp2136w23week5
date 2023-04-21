@@ -1,27 +1,39 @@
+
+/* I know this doesnt look great, but it definetly works on mobile! */
+
+main {
+    background-color: lightpink;
+    align-items: center;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: lightsteelblue;
     margin: 0 auto;
-    width: 80%;
-    border: 5px solid blue;
-    padding: 0 3em 116px;
+    width: 100%;
+    border: 5px solid #333333;;
+    padding: 0 ;
     display:flex;
     flex-direction: column;
     justify-content: center;
     position: relative;
     
 }
-h1 {
+/* h1 {
     color: whitesmoke;
     display:flex;
     flex-direction: row;
 
 
-}
+} */
 div {
     margin-bottom: 1em;
+    align-items:center;
+    justify-content: center;
+    text-align: center;
+    /* border: 5px solid; */
 }
-label {
+/* label {
     display: inline-block;
     width: 11em;
     text-align: right;
@@ -29,9 +41,9 @@ label {
 input {
     margin-left: 1em;
     margin-right: 0.5em;
-}
+} */
 
-.banner {
+/* .banner {
     height: 150px;
     background-color: blue;
     margin-top: 0em;
@@ -40,24 +52,27 @@ input {
     display:flex;
     flex-direction: row;
 
-}
+} */
 
 #time {
     color: whitesmoke;
     text-align: right;
-    margin-left: 80%;
+    padding-right: 10%;
+    padding-left: 65%;
 
 }
 
 #profilepic{
-    margin-left:40%;
+    margin-left:5%;
+    margin-top:10px;
+    margin-bottom:30px;
     
 }
 
-#profilelink{
+/* #profilelink{
     color: whitesmoke;
-}
-.row{
+} */
+/* .row{
    height:100%;
    display:flex;
    flex-wrap: wrap;
@@ -87,33 +102,32 @@ input {
     margin-top: 1em;
     padding-top: 1em;
     padding-bottom: 1em;
-}
-.col-4{
+}*/
+/* .col-4{
     width:40%;
     height:500px;
-    background-color: lightskyblue;
     display:flex;
     flex-wrap: wrap;
     margin-top: 1em;
     padding-top: 1em;
     padding-bottom: 1em;
-}
-.inputs{
+}  */
+/* .inputs{
     margin: 2em;
-    text-align: center;
-}
-.outputs{
+    text-align: ;
+}*/
+/* .outputs{
     margin: 1.5em;
     text-align: center;
-}
+    margin-right: 0px;
+}  */
 .header-ul {
     list-style-type: none;
-    width: 100%;
-    height: 75px;
+    width: 100%; 
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #333333;
   }
   
   .header-li {
@@ -135,13 +149,15 @@ input {
 
   .footer-ul {
     list-style-type: none;
-    width: 92%;
-    margin: 0;
-    padding: 0;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
     overflow: hidden;
     background-color: #333;
+
     bottom: 0;
-    position: absolute;
+  
+    
   }
   
   .footer-li {
@@ -161,9 +177,28 @@ input {
     background-color: cornflowerblue;
   }
 
-#image_list{
+#hide_list{
     list-style: none;
 }
+
 #timer{
     width:25%;
+}
+
+.picture{
+    object-fit: cover;
+}
+#main_image{
+    width: 100%;
+    margin: 0px;
+}
+
+
+@media only screen and (max-width:768px) {
+    #main_image{
+        max-width: 100%;
+        margin-left: 0px;
+           
+    }
+   
 }

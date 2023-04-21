@@ -23,19 +23,29 @@ app.listen(PORT, ()=>{
     console.log("App listening on port #"+ PORT);
 });
 
-//Dashboard Page
+//Dashboard Page and Update
 app.get("/", (req, res)=>{
-    res.render("index");
+    let user = req.session.user;
+    res.render("index", {user});
 })
+app.post("/update-dashboard",(req, res)=>{
+    console.log(req.body);
+    req.session.user = req.body;
+    res.redirect("/");
+});
 
-//Profile page and update
+//Profile page and Update
 app.get("/profile", (req, res)=>{
     let user = req.session.user;
     res.render("profile", {user});
 })
+app.post("/update-profile",(req, res)=>{
+    console.log(req.body);
+    req.session.user = req.body;
+    res.redirect("/profile");
+});
 
-
-//TERMS PAGE AND UPDATED VERSION
+//TERMS PAGE 
 app.get("/terms", (req, res)=>{
     res.render("terms");
 })
@@ -51,9 +61,7 @@ app.get("/slideshow", (req, res)=>{
     res.render("slideshow");
 })
 
-
-app.post("/update-profile",(req, res)=>{
-    console.log(req.body);
-    req.session.user = req.body;
-    res.redirect("/profile");
-});
+//Jukebox Page
+app.get("/jukebox", (req, res)=>{
+    res.render("jukebox");
+})

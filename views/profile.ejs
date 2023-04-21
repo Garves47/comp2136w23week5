@@ -14,47 +14,48 @@
         <% if(user){ %>
           <h1><%= user.firstname %>'s Profile</h1>
           <% }else{ %>
-          <h1>User Profile</h1>
-          <% } %>
+          <h1>User Profile</h1><% } %>  
       </div>
-      <div class="row">
-        <div class="col-3">
+      
+        <div class="">
         <form id="profile_form" name="profile_form" action="/update-profile" method="POST">
-          <div class="inputs">
+          <img src="css/UserIcon.png" width="120" height="120" alt="User Icon" id="profilepic">
+          
+          <div class="">
               <label for="firstname">First Name:</label>
               <input type="text" id="firstname" name="firstname" />
           </div>
-          <div class="inputs">
+          <div class="">
               <label for="lastname">Last Name:</label>
               <input type="text" id="lastname" name="lastname" />
           </div>
-          <div class="inputs">
+          <div class="">
               <label for="email">Email Address:</label>
               <input type="email" id="email" name="email" />
           </div>
-          <div class="inputs">
+          <div class="">
               <label for="birthday">Birthday:</label>
               <input type="date" id="birthday" name="birthday" />
           </div>
-          <div class="inputs">
+          <div class="">
               <label for="password">Password:</label>
               <input type="password" id="password" name="password" />
               <span id="badpassword"></span>
           </div>
-          <div class="inputs">
+          <div class="">
               <label for="passwordcheck">Confirm Password:</label>
               <input type="password" id="passwordcheck" name="passwordcheck" />
           </div>
         </form>
-          <div class="inputs">
+          <div class="">
               <input type="submit" id="submituser" value="Confirm Setup" />
               <span id="submiterror"></span>
               <input type="button" id="resetuser" value="Reset All Information" />
           </div>
         </div>
         
-        <div class="col-4">
-          <img src="css/UserIcon.png" width="120" height="120" alt="User Icon" id="profilepic">
+        <div class="">
+          
           <div class="outputs">
             <label for="savefirstname">First Name:</label><%if(user){%>
             <span type="text" id="savefirstname" name="savefirstname"><%=user.firstname%></span><%}%>
@@ -73,7 +74,7 @@
           </div>
         </div> 
         
-      </div> 
+       
       <%- include('layouts/footer')-%>
     </main>
     <script src="js/profile.js"></script>

@@ -11,82 +11,91 @@
     <%- include('layouts/header')-%>
     <main>
       <div class="">
-        <h1>Device Settings</h1>
+        <% if(user){ %>
+          <h1><%= user.devicename %> Settings</h1>
+          <% }else{ %>
+          <h1>Device Settings</h1><% } %>
       </div>
-      <form id="device_form" name="device_form">
-        <div class="row">
-          <div class="col-1">
-            <div class="inputs">
-              <label for="devicename">Enter a new device name:</label>
-              <input type="text" id="devicename" name="devicename" />
-            </div>
-            <div class="inputs">
-              <label for="notifications">Notifications: </label>
-              <select name="notifications" id="notifications" >
-                <option value="On">On</option>
-                <option value="Off">Off</option>
-              </select>
-            </div>
-            <div class="inputs">
-              <label for="lights">Lighting Mode: </label>
-              <select name="lights" id="lights" >
-                <option value="Off">Off</option>
-                <option value="Away">Away</option>
-                <option value="Eco">Eco</option>
-                <option value="Full">Full</option>
-              </select>
-            </div>
-            <div class="inputs">
-              <label for="postal">Enter your postal code:</label>
-              <input type="text" id="postal" name="postal" required placeholder="A1A1A1"/>
-              <span id="postalcodeerror"></span>
-            </div>
-            <div class="inputs">
-              <label for="temperature">Temperature (10C to 25C):</label>
-              <input type="range" id="temperature" name="temperature" min="10" max="25" step="0.5" value="10">
-            </div>
-            <div class="inputs">
-              <label for="temperature">Set Temporary Temperature (10C to 25C):</label>
-              <input type="range" id="temptemp" name="temperature" min="10" max="25" step="0.5" value="10">
-              <label for="setTempTime">Set the hours and minutes it should run for:</label>
-              <input type="number" id="hours" name="hours" min="0" max="24" placeholder="Hours"/>
-              <input type="button" id="setTempTime" value="Start Temporary Temperature" />
-              <input type="number" id="minutes" name="minutes" min="0" max="60" placeholder="Minutes"/>
-              
-            </div>
-             
-            <div class="inputs">
-              <input type="submit" id="submitdevice" value="Set changes to system" />
-              <input type="button" id="resetdevice" value="Clear all options" />
-            </div>
+      <!-- <div class=""> -->
+        <form id="device_form" name="device_form" action="/update-dashboard" method="POST">
+
+        <div class="cols-md-6">
+        
+          <div class="">
+            <label for="devicename">Enter a new device name:</label>
+            <input type="text" id="devicename" name="devicename" />
           </div>
+          <div class="">
+            <label for="notifications">Notifications: </label>
+            <select class="btn btn-secondary dropdown-toggle" name="notifications" id="notifications" >
+              <option value="On">On</option>
+              <option value="Off">Off</option>
+            </select>
+          </div>
+          <div class="">
+            <label for="lights">Lighting Mode: </label>
+            <select class="btn btn-secondary dropdown-toggle" name="lights" id="lights" >
+              <option value="Off">Off</option>
+              <option value="Away">Away</option>
+              <option value="Eco">Eco</option>
+              <option value="Full">Full</option>
+            </select>
+          </div>
+          <div class="">
+            <label for="postal">Enter your postal code:</label>
+            <input type="text" id="postal" name="postal" required placeholder="A1A1A1"/>
+            <span id="postalcodeerror"></span>
+          </div>
+          <div class="">
+            <label for="temperature">Temperature (10C to 25C):</label>
+            <input type="range" id="temperature" name="temperature" min="10" max="25" step="0.5" value="10">
+          </div>
+          <div class="">
+            <input class="btn btn-secondary" type="submit" id="submitdevice" value="Set changes to system" />
+            <input class="btn btn-secondary" type="button" id="resetdevice" value="Clear all options" />
+          </div>
+        
+          <div class="">
+            <label for="temperature">Set Temporary Temperature (10C to 25C):</label>
+            <input type="range" id="temptemp" name="timedtemperature" min="10" max="25" step="0.5" value="0">
+          </div>
+          <div class="">
+            <label for="setTempTime">Set the hours and minutes it should run for:</label>
+            <input type="number" id="hours" name="hours" min="0" max="24" placeholder="Hours"/>
+            <input type="number" id="minutes" name="minutes" min="0" max="60" placeholder="Minutes"/>
+          </div>
+          <div > 
+            <input class="btn btn-secondary" type="button" id="setTempTime" value="Start Temporary Temperature" />
+          </div>
+        </div> 
+          </form>
           
-          <div class="col-2">
-            <div class="outputs">
-              <label for="savedevice">Current Device Name:</label>
-              <span type="text" id="savedevice" name="savedevice"></span>
-            </div>
-            <div class="outputs">
-              <label for="savenotification">Current Notification Settings:</label>
-              <span type="text" id="savenotification" name="savenotification"></span>
-            </div>
-            <div class="outputs">
-              <label for="savelighting">Current Lighting Mode:</label>
-              <span type="text" id="savelighting" name="savelighting"></span>
-            </div>
-            <div class="outputs">
-              <label for="savepostal">Postal Code:</label>
-              <span type="text" id="savepostal" name="savepostal"></span>
-            </div>
-            <div class="outputs">
-              <label for="savetemperature">Current Temperature:</label>
-              <input type="text" id="savetemperature" name="savetemperature"/>
-              <p id="timerTime"></p>
-            </div>
+         
+        <div class="cols-md-6">
+          <div class="">
+            <label for="savedevice">Current Device Name:</label><%if(user){%>
+            <span type="text" id="savedevice" name="savedevice"><%=user.devicename%></span><%}%>
+          </div>
+          <div class="">
+            <label for="savenotification">Current Notification Settings:</label><%if(user){%>
+            <span type="text" id="savenotification" name="savenotification"><%=user.notifications%></span><%}%>
+          </div>
+          <div class="">
+            <label for="savelighting">Current Lighting Mode:</label><%if(user){%>
+            <span type="text" id="savelighting" name="savelighting"><%=user.lights%></span><%}%>
+          </div>
+          <div class="">
+            <label for="savepostal">Postal Code:</label><%if(user){%>
+            <span type="text" id="savepostal" name="savepostal"><%=user.postal%></span><%}%>
+          </div>
+          <div class="">
+            <label for="savetemperature">Current Temperature:</label><%if(user){%>
+            <span type="text" id="savetemperature" name="savetemperature"><%=user.temperature%></span><%}%>
+            <p id="timerTime"></p>
           </div>
         </div>
-      </form>
-      <%- include('layouts/footer')-%>
+      
+    <%- include('layouts/footer')-%>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="js/dashboard.js"></script> 

@@ -35,11 +35,12 @@ const saveDevice = evt => {
   evt.preventDefault();  
   if (postalOkay){
     
-    $("#savedevice").value = $$("devicename").value;
-    $("#savenotification").value = $$("notifications").value;
-    $("#savelighting").value = $$("lights").value;
-    $("#savetemperature").value = parseFloat($$("temperature").value);
-    $("#savepostal").value = $$("postal").value;
+    //$("#savedevice").value = $$("devicename").value;
+    //$("#savenotification").value = $$("notifications").value;
+    //$("#savelighting").value = $$("lights").value;
+    //$("#savetemperature").value = parseFloat($$("temperature").value);
+    //$("#savepostal").value = $$("postal").value;
+    $("#device_form").submit();
   } 
 };
 
@@ -67,7 +68,7 @@ const updateTimer = evt =>{
   if(timerLength>=0){
     $("#timerTime").textContent = (hours+":"+minutes+":"+seconds);
   }else{ //Otherwise reset the saved temp to its original value
-    $("#savetemperature").value = saveTemp;
+    $("#savetemperature").textContent = saveTemp;
   }
 }
 //Prepping the timer
@@ -75,9 +76,9 @@ const timedTemperature = evt => {
   //sets how long the timer lasts in miliseconds
   timerLength = ($$("hours").value*60*60*1000) + ($$("minutes").value*60*1000);
   //Saves the current temp
-  saveTemp = $("#savetemperature").value;
+  saveTemp = $("#savetemperature").textContent;
   //sets the new timed temp
-  $("#savetemperature").value = $("#temptemp").value;
+  $("#savetemperature").textContent = $("#temptemp").value;
   //starts the timer
   timer = setInterval(updateTimer, 1000);
 }
@@ -90,11 +91,11 @@ document.addEventListener("DOMContentLoaded", () => {
   $("#resetdevice").addEventListener("click", resetDevice);
   $("#setTempTime").addEventListener("click", timedTemperature);
 
-  $("#savedevice").value = ("Glen");
-  $("#savenotification").value = ("On")
-  $("#savelighting").value = ("Off")
-  $("#savepostal").value = ("L4M4J2")
-  $("#savetemperature").value = ("10")
+  //$("#savedevice").value = ("Glen");
+  //$("#savenotification").value = ("On")
+  //$("#savelighting").value = ("Off")
+  //$("#savepostal").value = ("L4M4J2")
+  //$("#savetemperature").value = ("10")
 
 });
 
